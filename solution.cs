@@ -17,23 +17,18 @@ public class Solution {
             return;
         }
 
-        if(r1 == null && r2 != null){
+        if(r1 == null || r2 == null){
             tf[0] = false;
             return;
         }
 
-        if(r1 != null && r2 == null){
+        if(r1.val != r2.val){
             tf[0] = false;
             return;
         }
 
-        if(r1.val == r2.val){
-            isMirror(r1.left, r2.right, tf);
-            isMirror(r1.right, r2.left, tf);
-        }
-        else{
-            tf[0] = false;
-        }
+        isMirror(r1.left, r2.right, tf);
+        isMirror(r1.right, r2.left, tf);
     }
 
     public bool IsSymmetric(TreeNode root) {
